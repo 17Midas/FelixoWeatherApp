@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast | Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-500 to-purple-600 min-h-screen flex flex-col items-center p-4">
+
+    <header class="text-white text-center mb-8 mt-10">
+        <h1 class="text-4xl font-bold">SkyCast Dashboard</h1>
+        <p class="opacity-80">Real-time weather insights</p>
+    </header>
+
+    <div class="w-full max-w-md">
+        <div class="flex gap-2 mb-6">
+            <input type="text" id="cityInput" placeholder="Enter city name..." 
+                class="w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/50 bg-white/20 text-white placeholder-white/70">
+            <button onclick="getWeather()" 
+                class="bg-white text-blue-600 px-6 py-3 rounded-xl font-bold hover:bg-blue-50 transition">Search</button>
+        </div>
+
+        <div id="weatherDisplay" class="hidden glass rounded-3xl p-8 text-white text-center shadow-2xl">
+            <h2 id="cityName" class="text-3xl font-bold mb-2">City Name</h2>
+            <div class="flex justify-center items-center">
+                <img id="weatherIcon" src="" alt="Weather Icon" class="w-24 h-24">
+                <span id="temp" class="text-6xl font-light">--°C</span>
+            </div>
+            <p id="description" class="capitalize text-lg mb-6 opacity-90">Cloudy</p>
+
+            <div class="grid grid-cols-2 gap-4 border-t border-white/20 pt-6">
+                <div class="text-center">
+                    <p class="text-sm opacity-70 uppercase tracking-widest">Humidity</p>
+                    <p id="humidity" class="text-xl font-semibold">--%</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-sm opacity-70 uppercase tracking-widest">Wind Speed</p>
+                    <p id="wind" class="text-xl font-semibold">-- m/s</p>
+                </div>
+            </div>
+        </div>
+
+        <p id="statusMsg" class="text-white text-center mt-4 hidden italic"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
